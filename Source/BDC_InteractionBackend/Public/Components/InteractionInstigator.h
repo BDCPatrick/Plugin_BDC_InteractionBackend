@@ -17,7 +17,7 @@
 
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
-class BDC_INTERACTIONBACKEND_API UInteractionInstigatorComponent : public UActorComponent
+class BDC_INTERACTIONBACKEND_API UBDC_InteractionInstigatorComponent : public UActorComponent
 {
 		GENERATED_BODY()
 	
@@ -26,7 +26,7 @@ private:
 	USceneComponent* InstigatorComponent;
 
 public:
-	UInteractionInstigatorComponent();
+	UBDC_InteractionInstigatorComponent();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "BDC|Interaction|Instigator")
 	FName NameOfInteractionComponent = FName("CapsuleComponent");

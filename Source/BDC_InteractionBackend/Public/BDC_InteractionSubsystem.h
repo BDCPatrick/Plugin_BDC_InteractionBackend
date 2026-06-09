@@ -15,7 +15,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "BDC_InteractionSubsystem.generated.h"
 
-class UInteractionInstigatorComponent;
+class UBDC_InteractionInstigatorComponent;
 
 USTRUCT(BlueprintType)
 struct FInteractionReceivers
@@ -48,10 +48,10 @@ private:
 	FTransform InstigatorTransform = FTransform();
 	
 	UPROPERTY()
-	UInteractionInstigatorComponent* Instigator;
+	UBDC_InteractionInstigatorComponent* Instigator;
 
 	UPROPERTY()
-	TArray<UInteractionInstigatorComponent*> InstigatorsOfLevel;
+	TArray<UBDC_InteractionInstigatorComponent*> InstigatorsOfLevel;
 
 	UPROPERTY()
 	FInteractionReceivers LastInteractedWith;
@@ -79,7 +79,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "BDC|Interaction|Dispatchers|Subsystem")
 	FOnInteractionFired OnInteractionFired;
 
-	void SetInstigator(UInteractionInstigatorComponent* NewInstigator);
+	void SetInstigator(UBDC_InteractionInstigatorComponent* NewInstigator);
 	void GetLastInteraction(FInteractionReceivers& LastReceiver) const;
 	void InjectInteraction();
 	void UpdateInteractions(FVector InstigatorLocation, FRotator InstigatorRotation);
@@ -91,8 +91,8 @@ public:
 	void GetInstigatorByName(FName OfInstigatorName, FInteractionReceivers& InstigatorData) const;
 	void AddReceiver(FInteractionReceivers NewReceiver);
 	void RemoveReceiver(UInteractionReceiverComponent* ReceiverComponent);
-	void AddInstigator(UInteractionInstigatorComponent* NewInstigator);
-	void RemoveInstigator(UInteractionInstigatorComponent* InstigatorComponent);
+	void AddInstigator(UBDC_InteractionInstigatorComponent* NewInstigator);
+	void RemoveInstigator(UBDC_InteractionInstigatorComponent* InstigatorComponent);
 
 	void GetAllReceiversInView(TArray<FInteractionReceivers>& OutReceiversInView) const;
 	void CalcNextBest();

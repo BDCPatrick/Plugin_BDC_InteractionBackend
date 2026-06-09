@@ -11,14 +11,14 @@
 #include "Engine/World.h"
 #include "Engine/GameInstance.h"
 
-UInteractionInstigatorComponent::UInteractionInstigatorComponent()
+UBDC_InteractionInstigatorComponent::UBDC_InteractionInstigatorComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 	bAutoActivate = true;
 	SetIsReplicatedByDefault(true);
 }
 
-FTransform UInteractionInstigatorComponent::GetInstigatorTransform() const
+FTransform UBDC_InteractionInstigatorComponent::GetInstigatorTransform() const
 {
 	if (InstigatorComponent)
 	{
@@ -33,7 +33,7 @@ FTransform UInteractionInstigatorComponent::GetInstigatorTransform() const
 	return FTransform::Identity;
 }
 
-void UInteractionInstigatorComponent::BeginPlay()
+void UBDC_InteractionInstigatorComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -64,7 +64,7 @@ void UInteractionInstigatorComponent::BeginPlay()
 	}
 }
 
-void UInteractionInstigatorComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+void UBDC_InteractionInstigatorComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	if (const UWorld* World = GetWorld())
 	{

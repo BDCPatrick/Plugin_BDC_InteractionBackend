@@ -21,7 +21,7 @@ class BDC_INTERACTIONBACKEND_API UBDC_InteractionLibrary : public UBlueprintFunc
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "BDC|Interaction|Library", meta = (WorldContext = "WorldContextObject"))
-	static void SetInstigator(const UObject* WorldContextObject, UInteractionInstigatorComponent* NewInstigator);
+	static void SetInstigator(const UObject* WorldContextObject, UBDC_InteractionInstigatorComponent* NewInstigator);
 
 	UFUNCTION(BlueprintPure, Category = "BDC|Interaction|Library", meta = (WorldContext = "WorldContextObject"))
 	static void GetLastInteraction(const UObject* WorldContextObject, FInteractionReceivers& LastReceiver);

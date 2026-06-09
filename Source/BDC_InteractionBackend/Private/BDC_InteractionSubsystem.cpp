@@ -20,7 +20,7 @@ void UBDC_InteractionSubsystem::GetLastInteraction(FInteractionReceivers& LastRe
 	LastReceiver = LastInteractedWith;
 }
 
-void UBDC_InteractionSubsystem::SetInstigator(UInteractionInstigatorComponent* NewInstigator)
+void UBDC_InteractionSubsystem::SetInstigator(UBDC_InteractionInstigatorComponent* NewInstigator)
 {
 	Instigator = NewInstigator;
 }
@@ -185,7 +185,7 @@ void UBDC_InteractionSubsystem::UpdateInteractions(FVector InstigatorLocation, F
 
 	ReceiversInField = NewReceiversInField;
 
-	for (UInteractionInstigatorComponent* InstigatorComp : InstigatorsOfLevel)
+	for (UBDC_InteractionInstigatorComponent* InstigatorComp : InstigatorsOfLevel)
 	{
 		if (InstigatorComp && InstigatorComp->bShowDebugging)
 		{
@@ -272,12 +272,12 @@ void UBDC_InteractionSubsystem::GetReceiverByName(FName OfReceiverName, FInterac
 
 void UBDC_InteractionSubsystem::GetInstigatorByTag(FGameplayTag OfInstigatorTag, FInteractionReceivers& InstigatorData) const
 {
-	for (const UInteractionInstigatorComponent* I : InstigatorsOfLevel)
+	for (const UBDC_InteractionInstigatorComponent* I : InstigatorsOfLevel)
 	{
 		if (I && I->TagOfInstigator == OfInstigatorTag)
 		{
 			InstigatorData.InteractionActor = I->GetOwner();
-			InstigatorData.InteractionComponent = const_cast<UInteractionInstigatorComponent*>(I);
+   InstigatorData.InteractionComponent = const_cast<UBDC_InteractionInstigatorComponent*>(I);
 			return;
 		}
 	}
@@ -286,7 +286,7 @@ void UBDC_InteractionSubsystem::GetInstigatorByTag(FGameplayTag OfInstigatorTag,
 
 void UBDC_InteractionSubsystem::GetInstigatorByName(FName OfInstigatorName, FInteractionReceivers& InstigatorData) const
 {
-	for (UInteractionInstigatorComponent* I : InstigatorsOfLevel)
+	for (UBDC_InteractionInstigatorComponent* I : InstigatorsOfLevel)
 	{
 		if (I && I->NameOfInstigator == OfInstigatorName)
 		{
@@ -312,12 +312,12 @@ void UBDC_InteractionSubsystem::RemoveReceiver(UInteractionReceiverComponent* Re
 	ReceiversInView.Remove(ReceiverComponent);
 }
 
-void UBDC_InteractionSubsystem::AddInstigator(UInteractionInstigatorComponent* NewInstigator)
+void UBDC_InteractionSubsystem::AddInstigator(UBDC_InteractionInstigatorComponent* NewInstigator)
 {
 	InstigatorsOfLevel.AddUnique(NewInstigator);
 }
 
-void UBDC_InteractionSubsystem::RemoveInstigator(UInteractionInstigatorComponent* InstigatorComponent)
+void UBDC_InteractionSubsystem::RemoveInstigator(UBDC_InteractionInstigatorComponent* InstigatorComponent)
 {
 	InstigatorsOfLevel.Remove(InstigatorComponent);
 	if (Instigator == InstigatorComponent)

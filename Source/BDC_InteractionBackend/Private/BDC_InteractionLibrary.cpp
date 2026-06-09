@@ -12,7 +12,7 @@
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 
-void UBDC_InteractionLibrary::SetInstigator(const UObject* WorldContextObject, UInteractionInstigatorComponent* NewInstigator)
+void UBDC_InteractionLibrary::SetInstigator(const UObject* WorldContextObject, UBDC_InteractionInstigatorComponent* NewInstigator)
 {
 	if (WorldContextObject)
 	{
